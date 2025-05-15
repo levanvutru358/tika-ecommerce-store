@@ -1,4 +1,5 @@
 import Header from '@/components/base/header';
+import { SiteFooter } from '@/components/base/side-footer';
 import React from 'react';
 
 type Props = {
@@ -10,6 +11,7 @@ const DefaultLayout: React.FC<Props> = ({children}) => {
         <div className='p-6'>
             <Header />
             {children}
+            <SiteFooter />
         </div>
     );
 };
