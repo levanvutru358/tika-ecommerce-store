@@ -6,11 +6,14 @@ import { toast } from 'sonner';
 import axios from 'axios'
 import { ProductCard } from '@/components/product-card';
 import { ProductFilterSidebar } from '@/components/product-filter-sidebar';
+import { ProductSkeletonCard } from '@/components/product-skeleton-card';
 
 const ProductPage: React.FC = () => {
     const [productData, setProductData] = useState<Product[] | []>([]);
+    const [loading, setLoading] = useState(true);
     const getAllProduct = async () => {
         try {
+            setLoading(true);
             const response = await axios.get('https://fakestoreapi.com/products');
             if(response) {
                 setProductData(response.data)
@@ -23,6 +26,8 @@ const ProductPage: React.FC = () => {
                         onClick: () => console.log("Try again"),
                     },
             })
+        } finally {
+            setLoading(false);
         }
     }
     useEffect(() => {
@@ -57,8 +62,12 @@ const ProductPage: React.FC = () => {
             <div className='mr-6'>
                 <ProductFilterSidebar allProducts={productData} onFilterChange={applyFilters} />
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 w-full gap-3'>
-                {filteredProducts.map((item, index) => (
+           <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 w-full gap-4'>
+            {loading
+                ? Array.from({ length: 6 }).map((_, idx) => (
+                    <ProductSkeletonCard key={idx} />
+                ))
+                : filteredProducts.map((item, index) => (
                     <ProductCard key={index} product={item} />
                 ))}
             </div>
