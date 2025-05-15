@@ -11,7 +11,7 @@ const Header: React.FC = () => {
     ]
     return (
         <header className='flex flex-row items-center justify-between'>
-            <NavLink to={'/'} className='text-2xl font-bold text-primary uppercase'>Tika</NavLink>
+            <NavLink to={'/'} className='text-2xl font-bold text-primary uppercase'>TruShop</NavLink>
             <div className='flex flex-row items-center gap-6'>
                 {navData.map(({ title, link}, index) => {
                     return (
