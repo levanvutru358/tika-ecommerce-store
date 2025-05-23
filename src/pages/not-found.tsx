@@ -1,5 +1,6 @@
 import { AlertCircle } from 'lucide-react';
 import type React from 'react';
+import { Link } from 'react-router-dom';
 
 const NotFound: React.FC = () => {
   return (
@@ -11,12 +12,12 @@ const NotFound: React.FC = () => {
         <p className="text-gray-600 mt-2 max-w-md mx-auto">
           Sorry, the page you're looking for doesn't exist or has been moved.
         </p>
-        <a
-          href="/"
+        <Link
+          to="/"
           className="mt-6 inline-block px-6 py-3 bg-primary text-white font-semibold uppercase rounded hover:bg-primary/90 transition duration-200"
         >
           Back to Home
-        </a>
+        </Link>
       </div>
     </div>
   );

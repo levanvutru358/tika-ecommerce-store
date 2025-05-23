@@ -145,14 +145,14 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* Promotional Banner */}
-      <div className="w-full bg-primary/10 rounded-lg py-8 px-6 text-center mb-12">
-        <h3 className="text-xl md:text-2xl font-semibold text-gray-800">
+      <div className="w-full bg-[url(https://images.unsplash.com/photo-1586377886011-46cd9ef84a74?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] rounded-lg py-12 px-6 text-center mb-12">
+        <h3 className="text-xl md:text-3xl font-bold text-white">
           Special Offer: Up to 50% Off!
         </h3>
-        <p className="text-gray-600 mt-2 max-w-md mx-auto">
+        <p className="text-white mt-2 max-w-md mx-auto font-md">
           Don't miss our limited-time deals on top products.
         </p>
-        <Button asChild className="mt-4 bg-primary text-white">
+        <Button asChild className="mt-4 bg-primary text-white" size={'lg'}>
           <Link to="/products">Grab the Deal</Link>
         </Button>
       </div>
