@@ -7,6 +7,13 @@ import { ProductSkeletonCard } from '@/components/product-skeleton-card';
 import type { Product } from '@/types/product.type';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { MoveRightIcon } from 'lucide-react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 
 const HomePage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -91,15 +98,15 @@ const HomePage: React.FC = () => {
     <div className="flex flex-col items-start w-full px-4 md:p-8">
 
       {/* Banner Section */}
-      <div className="w-full rounded-lg py-30 px-6 text-center mb-8 bg-[url(https://images.unsplash.com/photo-1544724677-744ce69a22c6?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)]">
-        <h1 className="text-4xl md:text-5xl font-bold text-primary uppercase tracking-tight">
+      <div className="w-full rounded-lg py-30 px-6 text-center mb-8 bg-[url(https://images.unsplash.com/photo-1610547677701-984fb9d67055?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)]">
+        <h1 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tight">
           Welcome to TruShop
         </h1>
-        <p className="text-gray-600 mt-4 max-w-lg mx-auto">
+        <p className="text-white mt-4 max-w-lg mx-auto italic">
           Discover the best deals on fashion, electronics, and more. Start shopping now!
         </p>
-        <Button asChild className="mt-6 px-6 py-3 bg-primary text-white font-semibold uppercase rounded hover:bg-primary/90 transition">
-          <Link to="/products">Shop Now</Link>
+        <Button asChild size={'lg'} className="mt-6 px-6 py-4 bg-primary text-white font-semibold uppercase rounded-3xl hover:bg-primary/90 transition">
+          <Link to="/products">Shop Now <MoveRightIcon /></Link>
         </Button>
       </div>
 
@@ -171,17 +178,37 @@ const HomePage: React.FC = () => {
         )}
       </div>
 
-      {/* Why Shop Section */}
-      <div className="w-full text-center mt-12">
-        <h3 className="text-xl md:text-2xl font-semibold text-gray-800">
+     
+      <div className="w-full text-center mt-12 mb-12">
+        <h3 className="text-xl md:text-2xl font-semibold text-gray-800 mb-6">
           Why Shop with TruShop?
         </h3>
-        <p className="text-gray-600 mt-2 max-w-md mx-auto">
-          Enjoy fast shipping, top-quality products, and excellent customer service.
-        </p>
-        <Button asChild variant="outline" className="mt-4">
-          <Link to="/about">Learn More</Link>
-        </Button>
+        <Accordion type="single" collapsible className="max-w-2xl mx-auto">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Why shop with TruShop?</AccordionTrigger>
+            <AccordionContent>
+              TruShop offers a wide range of high-quality products at competitive prices, backed by exceptional customer service to ensure a seamless shopping experience.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>How fast is your shipping?</AccordionTrigger>
+            <AccordionContent>
+              We provide fast and reliable shipping, with most orders delivered within 3-5 business days, depending on your location.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger>What is your return policy?</AccordionTrigger>
+            <AccordionContent>
+              We offer a hassle-free 30-day return policy for most items, so you can shop with confidence. Contact our support team for assistance.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-4">
+            <AccordionTrigger>How do you ensure product quality?</AccordionTrigger>
+            <AccordionContent>
+              Our products are sourced from trusted suppliers and undergo rigorous quality checks to meet our high standards.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
     </div>
   );
